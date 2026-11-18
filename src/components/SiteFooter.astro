@@ -1,0 +1,12 @@
+---
+import cv from '../data/cv.json';
+
+const fullName = cv.personal_info.full_name;
+---
+
+<footer class="site-footer wrap mx-auto grid min-h-[86px] w-[calc(100%-112px)] max-w-[1300px] grid-cols-[1fr_1.2fr_1fr] items-center border-t border-[#e9e8e3] text-xs text-[#58615d] max-[900px]:w-[calc(100%-60px)] max-[620px]:min-h-[94px] max-[620px]:w-[calc(100%-38px)] max-[620px]:grid-cols-[1fr_auto] max-[620px]:gap-y-[9px] max-[620px]:py-[17px]">
+	<a class="footer-name font-display text-[13px] font-bold text-[#49514e]" href="/">{fullName}</a>
+	<span class="text-center max-[620px]:col-span-2 max-[620px]:col-start-1 max-[620px]:row-start-2">Product designer · Yogyakarta, Indonesia</span>
+	<a class="justify-self-end text-brand-blue-dark max-[620px]:col-start-2 max-[620px]:row-start-1" href="/#top">Back to top ↑</a>
+	<small class="col-span-full justify-self-center pb-[14px] text-xs text-[#58615d] max-[620px]:row-start-3 max-[620px]:justify-self-start max-[620px]:p-0">Thoughtfully designed, with a little help from Figma.</small>
+</footer>

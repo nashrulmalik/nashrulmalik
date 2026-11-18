@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import cv from '../data/cv.json';
+
+const { personal_info } = cv;
+---
+
+<Layout title={`Contact — ${personal_info.full_name}`} description="Get in touch with product designer Muhammad Nashrul Malik.">
+	<SiteHeader currentPage="contact" />
+	<main id="top">
+		<section class="contact-page wrap mx-auto w-[calc(100%-112px)] max-w-[1300px] py-20 max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:py-12" aria-labelledby="contact-title">
+			<div class="contact-page-panel grid min-h-[440px] grid-cols-[1fr_.8fr] items-center gap-[10%] overflow-hidden rounded-sm bg-[#eaf1fe] px-[8%] py-16 max-[900px]:grid-cols-1 max-[900px]:gap-9 max-[620px]:px-6 max-[620px]:py-10">
+				<div>
+					<p class="eyebrow mb-5 flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966]">LET’S TALK <span class="heading-line"></span></p>
+					<h1 class="mb-6 max-w-[10ch] font-display text-[clamp(48px,6vw,82px)] font-semibold leading-[.98] tracking-[-.07em] max-[900px]:max-w-[12ch] max-[620px]:text-[48px]" id="contact-title">Let’s make complex things clear<span class="text-brand-blue">.</span></h1>
+					<p class="max-w-[38ch] text-lg leading-[1.7] text-[#535b57]">I’d love to connect with a thoughtful product team, talk about design, or hear about a challenging problem you’re solving.</p>
+				</div>
+				<div class="contact-options grid gap-4">
+					<a class="contact-option group flex items-center gap-4 rounded-sm bg-white p-5 transition-transform hover:-translate-y-0.5" href={`mailto:${personal_info.contact.email}?subject=Product%20Design%20Conversation`}>
+						<span class="contact-option-icon">↗</span>
+						<span class="min-w-0"><small>EMAIL</small><b>{personal_info.contact.email}</b></span>
+						<span class="ml-auto text-lg text-brand-blue-dark transition-transform group-hover:translate-x-1">→</span>
+					</a>
+					<a class="contact-option group flex items-center gap-4 rounded-sm bg-white p-5 transition-transform hover:-translate-y-0.5" href={personal_info.links.linkedin} target="_blank" rel="noreferrer">
+						<span class="contact-option-icon">in</span>
+						<span class="min-w-0"><small>LINKEDIN</small><b>Connect with me</b></span>
+						<span class="ml-auto text-lg text-brand-blue-dark transition-transform group-hover:translate-x-1">→</span>
+					</a>
+					<p class="mt-2 text-sm leading-[1.7] text-[#535b57]">Based in Yogyakarta, Indonesia · Open to remote collaboration.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+	<SiteFooter />
+</Layout>

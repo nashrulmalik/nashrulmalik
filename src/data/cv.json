@@ -13,13 +13,32 @@
       "role": "UI/UX Designer",
       "company": "eSense Software",
       "dates": {
+        "label": "2019–Present",
         "is_current": true
-      }
+      },
+      "mode": "Remote",
+      "summary": "Managed a 1,500+ screen prototype and built scalable Figma design systems for enterprise software.",
+      "highlights": [
+        "Set usability, visual hierarchy, accessibility, and RTL localization standards across design systems.",
+        "Collaborated with cross-functional teams to align design work with product goals."
+      ]
+    },
+    {
+      "role": "Graphic Designer",
+      "company": "99designs",
+      "dates": {
+        "label": "2013–2019"
+      },
+      "mode": "Remote · International",
+      "summary": "Created visual and interface designs across client briefs and earned Top Level Designer recognition."
     }
   ],
   "education": [
     {
-      "institution": "Institut Teknologi Bandung"
+      "institution": "Institut Teknologi Bandung",
+      "degree": "Bachelor of Science, Electrical Engineering",
+      "dates": "2013–2017",
+      "honor": "Cum Laude"
     }
   ],
   "credentials_and_certifications": [
@@ -35,6 +54,6 @@
       "Sketch",
       "InVision",
       "Lottie"
-    ]
+      ]
   }
 }

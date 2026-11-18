@@ -10,6 +10,65 @@
 	--color-brand-blue-dark: #1e5fbf;
 }
 
+html[data-theme='dark']{color-scheme:dark}
+html[data-theme='dark'] body{background:#10151d;color:#edf2f8}
+html[data-theme='dark'] .site-header{border-color:#2b3542}
+html[data-theme='dark'] .monogram{color:#edf2f8}
+html[data-theme='dark'] .monogram span{color:#4285F4}
+html[data-theme='dark'] .wordmark-name,html[data-theme='dark'] .header-role,html[data-theme='dark'] nav{color:#c4cedb}
+html[data-theme='dark'] nav a:hover,html[data-theme='dark'] nav a[aria-current='page']{color:#9bbcff}
+html[data-theme='dark'] .eyebrow{color:#aebbc9}
+html[data-theme='dark'] .contact-card .eyebrow{color:#b8cbc4}
+html[data-theme='dark'] .text-link,html[data-theme='dark'] .site-footer>a:last-of-type{color:#9bbcff}
+html[data-theme='dark'] .theme-toggle{border-color:#3a485a;background:#1c2634;color:#a9c7ff}
+html[data-theme='dark'] .theme-toggle:hover{background:#26364a}
+html[data-theme='dark'] .intro-summary,html[data-theme='dark'] .section-aside,html[data-theme='dark'] .capability-card>p,html[data-theme='dark'] .impact-copy p{color:#c2ccd8}
+html[data-theme='dark'] .intro-bottom{border-color:#314864}
+html[data-theme='dark'] .hero-art{background:#1b2a41}
+html[data-theme='dark'] .hero-art:before,html[data-theme='dark'] .hero-orbit{border-color:#354d72}
+html[data-theme='dark'] .hero-art:after{background:#243955}
+html[data-theme='dark'] .hero-caption{color:#b4c9e9}
+html[data-theme='dark'] .hero-note,html[data-theme='dark'] .floating-chip{background:#202c3b;color:#d9e4f2;border-color:#334356}
+html[data-theme='dark'] .mint .card-art{background:#1b2b42}
+html[data-theme='dark'] .peach .card-art{background:#342a26}
+html[data-theme='dark'] .blue .card-art{background:#202d43}
+html[data-theme='dark'] .lilac .card-art{background:#2b2739}
+html[data-theme='dark'] .card-meta,html[data-theme='dark'] .card-meta span:last-child{color:#aebbc9}
+html[data-theme='dark'] .about-section{background:#171f2b}
+html[data-theme='dark'] .about-lede{color:#e1e8f0}
+html[data-theme='dark'] .about-detail{color:#c2ccd8}
+html[data-theme='dark'] .experience-strip{border-color:#354252}
+html[data-theme='dark'] .strip-label,html[data-theme='dark'] .experience-strip small{color:#aab7c6}
+html[data-theme='dark'] .experience-strip b{color:#e1e8f0}
+html[data-theme='dark'] .tool-pill{border-color:#3b4857;background:#202a37;color:#d3dce7}
+html[data-theme='dark'] .credential{background:#202a37}
+html[data-theme='dark'] .credential b{color:#e1e8f0}
+html[data-theme='dark'] .credential small{color:#b2bfcd}
+html[data-theme='dark'] .impact-timeline::before{border-color:#354c70}
+html[data-theme='dark'] .timeline-marker{border-color:#10151d;background:#23344e;color:#a9c7ff}
+html[data-theme='dark'] .impact-copy .card-meta{color:#aebbc9}
+html[data-theme='dark'] .impact-copy h3{color:#edf2f8}
+html[data-theme='dark'] .site-footer{border-color:#2b3542;color:#b3bfcc}
+html[data-theme='dark'] .footer-name{color:#e1e8f0}
+html[data-theme='dark'] .site-footer small{color:#aab7c6}
+html[data-theme='dark'] .contact-card{background:#1c2936}
+html[data-theme='dark'] .contact-action>p{color:#d3dce7}
+html[data-theme='dark'] .linkedin-link{color:#c7d4e2}
+@media(prefers-reduced-motion:reduce){.theme-toggle{transition:none}}
+
+.contact-option-icon{display:grid;width:46px;height:46px;flex:none;place-items:center;border-radius:50%;background:#e8f0fe;color:#1e5fbf;font-size:17px;font-weight:700}
+.contact-option small,.contact-option b{display:block}
+.contact-option small{margin-bottom:5px;color:#626966;font-size:12px;font-weight:700;letter-spacing:.12em}
+.contact-option b{overflow-wrap:anywhere;font-size:16px;font-weight:600}
+html[data-theme='dark'] .experience-card{border-color:#3b4857;background:#202a37}
+html[data-theme='dark'] .experience-card h2{color:#edf2f8}
+html[data-theme='dark'] .experience-card p:not(:first-child){color:#c2ccd8}
+html[data-theme='dark'] .contact-page-panel{background:#1b2a41}
+html[data-theme='dark'] .contact-page-panel>div>p:not(.eyebrow){color:#c2ccd8}
+html[data-theme='dark'] .contact-option{background:#202a37;color:#edf2f8}
+html[data-theme='dark'] .contact-option small{color:#aab7c6}
+html[data-theme='dark'] .contact-option-icon{background:#263b59;color:#a9c7ff}
+
 @layer base {
 	* { @apply box-border; }
 	html { @apply scroll-smooth; scroll-padding-top: 2rem; }
@@ -137,4 +196,21 @@ nav a:hover,nav .active,.text-link,.mini-icon,.token-b,.note-bottom span,.creden
 .site-footer small{font-size:12px}
 @media(max-width:900px){.header-role{font-size:14px}.intro-summary{font-size:17px}.section-heading h2,.about-heading h2{font-size:clamp(30px,4vw,40px)}}
 @media(max-width:620px){nav{font-size:14px}.wordmark-name{font-size:12px}.eyebrow{font-size:12px}.intro-summary{font-size:17px}.text-link{font-size:14px}.section-heading h2,.about-heading h2{font-size:32px}.capability-card h3{font-size:21px}.capability-card>p{font-size:15px}.about-lede{font-size:19px}.about-detail{font-size:15px}.experience-strip b{font-size:13px}.experience-strip small{font-size:12px}.tool-pill{font-size:12px}.credential b{font-size:12px}.contact-card h2{font-size:46px}.contact-action>p{font-size:15px}.contact-button{font-size:14px}.linkedin-link{font-size:13px}.footer-name{font-size:12px}.site-footer{font-size:12px}.site-footer small{font-size:12px}.hero-caption{font-size:12px}}
+
+.impact-timeline{position:relative;display:grid;row-gap:70px;padding-bottom:18px}
+.impact-timeline::before{position:absolute;content:'';top:0;bottom:0;left:50%;border-left:2px dotted #cbdcff;transform:translateX(-1px)}
+.impact-item{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr);column-gap:20px;align-items:start;min-width:0}
+.timeline-art{grid-column:1;grid-row:1;width:100%;height:270px}
+.impact-copy{grid-column:3;grid-row:1;align-self:start;max-width:480px;padding-top:8px}
+.timeline-marker{z-index:1;grid-column:2;grid-row:1;display:grid;width:44px;height:44px;place-items:center;justify-self:center;border:1px solid #fbfaf8;border-radius:50%;background:#e8f0fe;color:#1e5fbf;font-size:14px;font-weight:700;}
+.impact-item.reverse .timeline-art{grid-column:3}
+.impact-item.reverse .impact-copy{grid-column:1}
+.impact-copy .card-meta{justify-content:flex-start;margin:8px 0 13px;color:#555e5a;font-size:12px;letter-spacing:.1em}
+.impact-item.reverse .impact-copy{text-align:right;justify-self:end}
+.impact-item.reverse .impact-copy .card-meta{justify-content:flex-end}
+.impact-item.reverse .impact-copy p{margin-left:auto}
+.impact-copy h3{margin:0 0 7px;font:600 22px/1.25 Manrope,'DM Sans',sans-serif;letter-spacing:-.04em}
+.impact-copy p{max-width:465px;margin:0;color:#737a77;font-size:16px;line-height:1.65}
+@media(max-width:900px){.impact-item{grid-template-columns:minmax(0,1fr) 46px minmax(0,1fr);column-gap:12px}.timeline-art{height:230px}.impact-copy h3{font-size:20px}.impact-copy p{font-size:15px}}
+@media(max-width:620px){.impact-timeline{row-gap:50px;padding-left:0}.impact-timeline::before{left:20px}.impact-item,.impact-item.reverse{grid-template-columns:40px minmax(0,1fr);column-gap:12px;row-gap:13px}.timeline-art,.impact-item.reverse .timeline-art{grid-column:2;grid-row:1;height:235px}.timeline-marker{grid-column:1;grid-row:1;width:40px;height:40px}.impact-copy,.impact-item.reverse .impact-copy{grid-column:2;grid-row:2;max-width:none;padding-top:0;text-align:left;justify-self:stretch}.impact-copy .card-meta,.impact-item.reverse .impact-copy .card-meta{justify-content:flex-start;margin:0 0 10px}.impact-copy h3{font-size:21px}.impact-copy p,.impact-item.reverse .impact-copy p{margin-left:0;font-size:15px}}
 }
