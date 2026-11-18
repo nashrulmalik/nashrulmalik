@@ -11,7 +11,7 @@ const capabilityCards = [
 	{ number: '03', title: 'Inclusive by default', category: 'ACCESSIBILITY · RTL', tone: 'blue', description: 'Accessibility, clear hierarchy, and right-to-left localization are part of the design process from the start.', visual: 'inclusive' },
 	{ number: '04', title: 'Thoughtful details, ready to ship', category: 'PROTOTYPING · MOTION', tone: 'lilac', description: 'Prototypes, interaction details, and implementation guidance help ideas make the journey from Figma to product.', visual: 'motion' },
 ];
-const tools = skills.tools_and_software.filter((tool) => ['Figma', 'Adobe XD', 'Sketch', 'InVision', 'Lottie'].includes(tool));
+const tools = skills.tools_and_software;
 const currentRole = experience.find((item) => item.dates.is_current);
 const educationItem = education[0];
 const googleCert = credentials_and_certifications.find((item) => item.id === 'cert_google_ux_01');

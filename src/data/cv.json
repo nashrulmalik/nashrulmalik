@@ -1,0 +1,40 @@
+{
+  "personal_info": {
+    "full_name": "Muhammad Nashrul Malik",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/nashrulmalik/"
+    },
+    "contact": {
+      "email": "nashrulmalik@gmail.com"
+    }
+  },
+  "experience": [
+    {
+      "role": "UI/UX Designer",
+      "company": "eSense Software",
+      "dates": {
+        "is_current": true
+      }
+    }
+  ],
+  "education": [
+    {
+      "institution": "Institut Teknologi Bandung"
+    }
+  ],
+  "credentials_and_certifications": [
+    {
+      "id": "cert_google_ux_01",
+      "title": "Google UX Design Professional Certificate"
+    }
+  ],
+  "skills": {
+    "tools_and_software": [
+      "Figma",
+      "Adobe XD",
+      "Sketch",
+      "InVision",
+      "Lottie"
+    ]
+  }
+}
