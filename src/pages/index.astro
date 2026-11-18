@@ -5,6 +5,12 @@ import cv from '../data/cv.json';
 const { personal_info, experience, education, credentials_and_certifications, skills } = cv;
 const fullName = personal_info.full_name;
 const role = 'Product designer';
+const previousWork = [
+	{ title: 'Berry Software', image: '/work/berry-software.avif', alt: 'Berry Software product design' },
+	{ title: 'Beautiful Push Up App', image: '/work/beautiful-push-up-app.png', alt: 'Beautiful Push Up fitness app interface designs' },
+	{ title: 'Blue Sky Me App', image: '/work/blue-sky-me-app.jpg', alt: 'Blue Sky Me planning app interface designs' },
+	{ title: 'Vendeze Mobile App', image: '/work/vendeze-app.jpg', alt: 'Vendeze mobile shopping app interface designs' },
+];
 const capabilityCards = [
 	{ number: '01', title: 'Complex workflows, made clear', category: 'PRODUCT DESIGN', tone: 'mint', description: 'I turn dense, technical requirements into user journeys and interfaces people can move through with confidence.', visual: 'workflow' },
 	{ number: '02', title: 'A system that scales with the product', category: 'FIGMA · DESIGN SYSTEMS', tone: 'peach', description: 'I build reusable foundations that help teams stay consistent as products, platforms, and teams grow.', visual: 'system' },
@@ -23,7 +29,7 @@ const googleCert = credentials_and_certifications.find((item) => item.id === 'ce
 			<span class="monogram font-display relative text-[27px] font-extrabold leading-none tracking-[-2.5px] text-[#26302e] max-[620px]:text-2xl" aria-hidden="true">nm<span>.</span></span>
 			<span class="wordmark-name text-[13px] font-semibold tracking-[.03em] text-[#656c69] max-[620px]:text-xs">Nashrul Malik</span>
 		</a>
-		<p class="header-role justify-self-center text-[15px] tracking-[.01em] text-[#666e6b] max-[900px]:text-sm max-[620px]:hidden">Product designer <span>·</span> Figma</p>
+		<p class="header-role justify-self-center text-[15px] tracking-[.01em] text-[#666e6b] max-[900px]:text-sm max-[620px]:hidden">Product Designer <span>·</span> UI/UX Specialist</p>
 		<nav class="flex items-center justify-self-end gap-[35px] text-[15px] text-[#626865] max-[900px]:gap-[21px] max-[620px]:gap-[17px] max-[620px]:text-sm" aria-label="Main navigation">
 			<a class="text-brand-blue-dark transition-colors hover:text-brand-blue-dark" href="#work">work</a>
 			<a class="transition-colors hover:text-brand-blue-dark" href="#about">about</a>
@@ -38,7 +44,7 @@ const googleCert = credentials_and_certifications.find((item) => item.id === 'ce
 				<h1 class="mb-[33px] font-display text-[clamp(54px,6.4vw,86px)] font-semibold leading-[.99] tracking-[-.072em] max-[620px]:mb-[22px] max-[620px]:text-[58px]" id="intro-title">Making complex<br /><span class="text-brand-blue">feel simple.</span></h1>
 				<div class="intro-bottom max-w-[510px] border-l-2 border-[#d6efeb] pl-[18px]">
 					<p class="intro-summary mb-[22px] max-w-[440px] text-[18px] leading-[1.7] text-[#636a67] max-[900px]:text-[17px] max-[620px]:text-[17px]">I’m {fullName}, a product designer who turns customer needs and intricate systems into clear, considered digital experiences.</p>
-					<a class="text-link inline-flex items-center gap-[11px] text-[15px] font-bold text-brand-blue-dark max-[620px]:text-sm" href="#work">Explore my approach <span aria-hidden="true">↓</span></a>
+					<a class="text-link inline-flex items-center gap-[11px] text-[15px] font-bold text-brand-blue-dark max-[620px]:text-sm" href="#capabilities">Explore my approach <span aria-hidden="true">↓</span></a>
 				</div>
 			</div>
 			<div class="hero-art" aria-label="A visual sketch of a product workflow becoming a polished interface" role="img">
@@ -57,7 +63,30 @@ const googleCert = credentials_and_certifications.find((item) => item.id === 'ce
 			</div>
 		</section>
 
-		<section class="work-section wrap mx-auto w-[calc(100%-112px)] max-w-[1300px] pt-[45px] pb-[101px] max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-7 max-[620px]:pb-[68px]" id="work" aria-labelledby="work-title">
+		<section class="previous-work wrap mx-auto w-[calc(100%-112px)] max-w-[1300px] pt-[45px] pb-[80px] max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-7 max-[620px]:pb-[54px]" id="work" aria-labelledby="previous-work-title">
+			<div class="mb-7 flex items-end justify-between max-[620px]:mb-[19px] max-[620px]:block">
+				<div><p class="eyebrow mb-[11px] flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966]">PREVIOUS WORK <span class="heading-line"></span></p><h2 class="font-display text-[clamp(30px,3.3vw,42px)] font-semibold leading-[1.15] tracking-[-.055em] max-[620px]:text-[32px]" id="previous-work-title">A selection of past work<span class="accent-dot">.</span></h2></div>
+				<p class="section-aside mb-[3px] text-right text-sm leading-[1.6] text-[#5b625f] max-[620px]:hidden">Product ideas brought to life<br />across mobile and web.</p>
+			</div>
+			<div class="grid grid-cols-2 gap-[22px] max-[620px]:grid-cols-1 max-[620px]:gap-7">
+				{previousWork.map((project, index) => (
+					<article class="group min-w-0">
+						<figure class="relative m-0 aspect-square overflow-hidden bg-[#eaf1fe]">
+							<img class="block h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" src={project.image} alt={project.alt} loading="lazy" decoding="async" />
+							<div aria-hidden="true" class="absolute inset-0 flex items-center justify-center bg-brand-blue/90 px-8 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+								<h3 class="m-0 max-w-[18ch] font-display text-[clamp(22px,3vw,38px)] font-semibold leading-tight tracking-[-.04em]">{project.title}</h3>
+							</div>
+						</figure>
+						<div class="mt-3 flex items-center justify-between">
+							<h3 class="m-0 font-display text-lg font-semibold tracking-[-.03em] max-[620px]:text-base">{project.title}</h3>
+							<span class="text-xs font-semibold tabular-nums text-[#626966]">0{index + 1}</span>
+						</div>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="work-section wrap mx-auto w-[calc(100%-112px)] max-w-[1300px] pt-[45px] pb-[101px] max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-7 max-[620px]:pb-[68px]" id="capabilities" aria-labelledby="work-title">
 			<div class="section-heading mb-7 flex items-end justify-between max-[620px]:mb-[19px] max-[620px]:block">
 				<div><p class="eyebrow mb-[11px] flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966]">SELECTED CAPABILITIES <span class="heading-line"></span></p><h2 class="font-display text-[clamp(30px,3.3vw,42px)] font-semibold leading-[1.15] tracking-[-.055em] max-[620px]:text-[32px]" id="work-title">How I make an impact<span class="accent-dot">.</span></h2></div>
 				<p class="section-aside">A few ways I can help a product team<br />move from complexity to clarity.</p>
