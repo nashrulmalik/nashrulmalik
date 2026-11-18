@@ -57,9 +57,25 @@ html[data-theme='dark'] .linkedin-link{color:#c7d4e2}
 @media(prefers-reduced-motion:reduce){.theme-toggle{transition:none}}
 
 .contact-option-icon{display:grid;width:46px;height:46px;flex:none;place-items:center;border-radius:50%;background:#e8f0fe;color:#1e5fbf;font-size:17px;font-weight:700}
+.contact-option-icon svg{width:22px;height:22px}
+.case-meta-card small,.case-meta-card b{display:block}
+.case-meta-card small{margin-bottom:8px}
 .contact-option small,.contact-option b{display:block}
 .contact-option small{margin-bottom:5px;color:#626966;font-size:12px;font-weight:700;letter-spacing:.12em}
 .contact-option b{overflow-wrap:anywhere;font-size:16px;font-weight:600}
+html[data-theme='dark'] .case-study a{color:#9bbcff}
+html[data-theme='dark'] .case-study a:hover{color:#c3d6ff}
+html[data-theme='dark'] .case-study p{color:#c2ccd8}
+html[data-theme='dark'] .case-meta-card{border-color:#3b4857;background:#202a37}
+html[data-theme='dark'] .case-meta-card small{color:#aab7c6}
+html[data-theme='dark'] .case-meta-card b{color:#edf2f8}
+html[data-theme='dark'] .case-screen-card:nth-child(1){background:#1b2b42}
+html[data-theme='dark'] .case-screen-card:nth-child(2){background:#342a26}
+html[data-theme='dark'] .case-screen-card:nth-child(3){background:#2b2739}
+html[data-theme='dark'] .case-screen-card>span{color:#a9c7ff}
+html[data-theme='dark'] .case-screen-card h3{color:#edf2f8}
+html[data-theme='dark'] .case-study-board{background:#1b2430}
+html[data-theme='dark'] .case-study-board figcaption{color:#c2ccd8}
 html[data-theme='dark'] .experience-card{border-color:#3b4857;background:#202a37}
 html[data-theme='dark'] .experience-card h2{color:#edf2f8}
 html[data-theme='dark'] .experience-card p:not(:first-child){color:#c2ccd8}

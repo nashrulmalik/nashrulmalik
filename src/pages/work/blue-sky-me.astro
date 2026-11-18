@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+---
+
+<Layout title="Blue Sky Me — Case Study" description="A clean, overview-first Android app design for personal time, contact, and project management.">
+	<SiteHeader currentPage="home" />
+	<main id="top">
+		<article class="case-study wrap mx-auto w-[calc(100%-112px)] max-w-[1120px] pt-10 pb-24 max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-7 max-[620px]:pb-14">
+			<a class="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-brand-blue-dark transition-colors hover:text-brand-blue" href="/#work"><span aria-hidden="true">←</span> Back to previous work</a>
+			<header class="case-study-header mb-14 max-w-[820px] max-[620px]:mb-9">
+				<p class="eyebrow mb-4 flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966]">PERSONAL PRODUCTIVITY · ANDROID <span class="heading-line"></span></p>
+				<h1 class="mb-5 font-display text-[clamp(48px,7vw,84px)] font-semibold leading-[.98] tracking-[-.07em] max-[620px]:text-[46px]">Blue Sky Me<span class="text-brand-blue">.</span></h1>
+				<p class="max-w-[720px] text-xl leading-[1.6] text-[#535b57] max-[620px]:text-[17px]">A mobile productivity experience that brings daily plans, contacts, and projects together in one clear view.</p>
+				<div class="mt-8 grid max-w-[760px] grid-cols-3 gap-4 max-[620px]:grid-cols-1">
+					<div class="case-meta-card rounded-sm border border-[#e2e6ee] bg-white p-4"><small>PRODUCT</small><b>blueskyme</b></div>
+					<div class="case-meta-card rounded-sm border border-[#e2e6ee] bg-white p-4"><small>PLATFORM</small><b>Android</b></div>
+					<div class="case-meta-card rounded-sm border border-[#e2e6ee] bg-white p-4"><small>CONTEST RESULT</small><b>Winning entry</b></div>
+				</div>
+			</header>
+
+			<figure class="case-study-feature mb-16 overflow-hidden rounded-sm bg-[#edf2f5] p-3 max-[620px]:mb-12 max-[620px]:p-1.5">
+				<img class="block h-auto w-full" src="/work/blue-sky-me-detail.webp" alt="Three Blue Sky Me Android mockups showing the daily Activities view, a contact profile, and a map-based Do agenda" width="1502" height="1200" decoding="async" fetchpriority="high" />
+				<figcaption class="px-3 py-4 text-sm leading-[1.6] text-[#58615d] max-[620px]:px-2">Plan, Do, and contact views keep the day’s activities, people, and places connected.</figcaption>
+			</figure>
+
+			<section class="mb-16 grid grid-cols-[.8fr_1.2fr] gap-[10%] max-[900px]:grid-cols-1 max-[900px]:gap-5 max-[620px]:mb-12" aria-labelledby="blue-sky-challenge">
+				<div><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">THE CHALLENGE</p><h2 class="m-0 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="blue-sky-challenge">Help people see and manage their whole day.</h2></div>
+				<div class="space-y-4 text-base leading-[1.75] text-[#535b57]">
+					<p>Blue Sky Me is a personal productivity tool for time management, contact management, and mobile project management. The brief asked for a clean, modern experience that makes the app easy to scan without removing features.</p>
+					<p>The design direction leaned toward familiar Material Design patterns. The work needed to cover five connected views: Plan, Do, Project detail, Contact detail, and Activity detail.</p>
+				</div>
+			</section>
+
+			<section class="mb-16 max-[620px]:mb-12" aria-labelledby="blue-sky-views">
+				<div class="mb-7 max-w-[680px]"><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">FIVE CONNECTED VIEWS</p><h2 class="mb-3 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="blue-sky-views">A flexible plan, from overview to detail.</h2><p class="mb-0 text-base leading-[1.7] text-[#535b57]">Each view preserves the product’s breadth while helping users move from a broad plan to the details of a specific activity.</p></div>
+				<div class="grid grid-cols-3 gap-5 max-[900px]:grid-cols-2 max-[620px]:grid-cols-1">
+					<article class="case-screen-card rounded-sm bg-[#eaf1fe] p-6 max-[620px]:p-5"><span>01</span><h3>Plan</h3><p>Organize activities and shift them between time focuses such as Today, Next, and Someday.</p></article>
+					<article class="case-screen-card rounded-sm bg-[#fbe8e4] p-6 max-[620px]:p-5"><span>02</span><h3>Do</h3><p>Bring scheduled activities, tasks, locations, contacts, and projects into a date-based daily agenda.</p></article>
+					<article class="case-screen-card rounded-sm bg-[#eee9f6] p-6 max-[620px]:p-5"><span>03</span><h3>Activity detail</h3><p>Set an activity type, title, time or time focus, priority, location, participants, and project.</p></article>
+					<article class="case-screen-card rounded-sm bg-[#eaf1fe] p-6 max-[620px]:p-5"><span>04</span><h3>Contact detail</h3><p>Keep contact methods, completed activities, and upcoming items together in a useful profile.</p></article>
+					<article class="case-screen-card rounded-sm bg-[#fbe8e4] p-6 max-[620px]:p-5"><span>05</span><h3>Project detail</h3><p>Keep projects visible alongside the activities and people connected to the work.</p></article>
+				</div>
+			</section>
+
+			<section class="mb-16 max-[620px]:mb-12" aria-labelledby="blue-sky-board-title">
+				<div class="mb-6"><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">FULL DESIGN</p><h2 class="mb-2 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="blue-sky-board-title">The complete screen exploration.</h2><p class="mb-0 text-base leading-[1.7] text-[#535b57]">The full board shows the Plan and Do flows, contact and activity details, and the supporting edit screens.</p></div>
+				<figure class="case-study-board m-0 overflow-hidden rounded-sm bg-[#edf2f5] p-3 max-[620px]:p-1.5">
+					<img class="block h-auto w-full" src="/work/blue-sky-me-design.webp" alt="Full Blue Sky Me design board showing Plan and Do agenda screens, contact profiles, activity details, and editing forms" width="2040" height="8295" loading="lazy" decoding="async" />
+					<figcaption class="px-3 py-4 text-sm leading-[1.6] text-[#58615d] max-[620px]:px-2">Full Blue Sky Me Android design board, including agenda, map, contact, and activity views.</figcaption>
+				</figure>
+			</section>
+
+			<section class="case-study-summary mb-16 grid grid-cols-[.8fr_1.2fr] gap-[10%] border-t border-[#e2e6ee] pt-8 max-[900px]:grid-cols-1 max-[900px]:gap-4 max-[620px]:mb-12" aria-labelledby="blue-sky-design-choices">
+				<div><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">DESIGN APPROACH</p><h2 class="m-0 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="blue-sky-design-choices">Keep the overview clean. Keep the features.</h2></div>
+				<p class="m-0 text-base leading-[1.75] text-[#535b57]">A familiar activity list makes the plan easy to scan, while focus labels help sort tasks by when they matter. The Do view adds map context to the day, and contact or activity details bring the related information into view without losing the broader workflow. The visual language stays light and approachable, in line with the brief’s preference for clean, Material-inspired design.</p>
+			</section>
+
+			<a class="inline-flex items-center gap-2 text-sm font-semibold text-brand-blue-dark transition-colors hover:text-brand-blue" href="/#work">Back to previous work <span aria-hidden="true">→</span></a>
+		</article>
+	</main>
+	<SiteFooter />
+</Layout>

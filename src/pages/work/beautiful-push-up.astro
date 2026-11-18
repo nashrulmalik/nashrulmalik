@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+---
+
+<Layout title="Beautiful Push Up App — Case Study" description="A winning iPhone fitness app design for a daily push-up training program.">
+	<SiteHeader currentPage="home" />
+	<main id="top">
+		<article class="case-study wrap mx-auto w-[calc(100%-112px)] max-w-[1120px] pt-10 pb-24 max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-7 max-[620px]:pb-14">
+			<a class="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-brand-blue-dark transition-colors hover:text-brand-blue" href="/#work"><span aria-hidden="true">←</span> Back to previous work</a>
+			<header class="case-study-header mb-14 max-w-[820px] max-[620px]:mb-9">
+				<p class="eyebrow mb-4 flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966]">MOBILE FITNESS · IPHONE <span class="heading-line"></span></p>
+				<h1 class="mb-5 font-display text-[clamp(48px,7vw,84px)] font-semibold leading-[.98] tracking-[-.07em] max-[620px]:text-[46px]">Beautiful Push Up App<span class="text-brand-blue">.</span></h1>
+				<p class="max-w-[720px] text-xl leading-[1.6] text-[#535b57] max-[620px]:text-[17px]">A simple, motivating training experience that helps people build their push-up strength one daily workout at a time.</p>
+				<div class="mt-8 grid max-w-[760px] grid-cols-3 gap-4 max-[620px]:grid-cols-1">
+					<div class="case-meta-card rounded-sm border border-[#e2e6ee] bg-white p-4"><small>PRODUCT</small><b>Pushups</b></div>
+					<div class="case-meta-card rounded-sm border border-[#e2e6ee] bg-white p-4"><small>PLATFORM</small><b>iPhone</b></div>
+					<div class="case-meta-card rounded-sm border border-[#e2e6ee] bg-white p-4"><small>CONTEST RESULT</small><b>Winning entry</b></div>
+				</div>
+			</header>
+
+			<section class="mb-16 grid grid-cols-[.8fr_1.2fr] gap-[10%] max-[900px]:grid-cols-1 max-[900px]:gap-5 max-[620px]:mb-12" aria-labelledby="brief-title">
+				<div><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">THE CHALLENGE</p><h2 class="m-0 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="brief-title">Turn a daily habit into steady progress.</h2></div>
+				<div class="space-y-4 text-base leading-[1.75] text-[#535b57]">
+					<p>The brief called for an app that guides people through five sets of push-ups each day and helps them gradually do more. The progress graph toward a 100 push-up goal needed to be the focal point, with today’s workout only a tap away.</p>
+					<p>The design needed to feel modern, clean, and welcoming to both men and women. Workout screens also needed to make the current set, rep count, outcome controls, and progress through the five sets easy to understand at a glance.</p>
+				</div>
+			</section>
+
+			<section class="mb-16 max-[620px]:mb-12" aria-labelledby="screens-title">
+				<div class="mb-7 max-w-[680px]"><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">THE DESIGN RESPONSE</p><h2 class="mb-3 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="screens-title">Three core screens, one clear routine.</h2><p class="mb-0 text-base leading-[1.7] text-[#535b57]">Each screen has a distinct job: show progress, guide the workout, or make achievements tangible.</p></div>
+				<div class="grid grid-cols-3 gap-5 max-[900px]:grid-cols-1">
+					<article class="case-screen-card rounded-sm bg-[#eaf1fe] p-6 max-[620px]:p-5"><span>01</span><h3>Home</h3><p>Make the journey toward 100 push-ups visible with a daily progress graph. Keep the action to start today’s workout prominent, with Stats and Settings close at hand.</p></article>
+					<article class="case-screen-card rounded-sm bg-[#fbe8e4] p-6 max-[620px]:p-5"><span>02</span><h3>Workout</h3><p>Show the current set and rep count, provide clear Success and Fail controls, and keep progress through all five sets in view.</p></article>
+					<article class="case-screen-card rounded-sm bg-[#eee9f6] p-6 max-[620px]:p-5"><span>03</span><h3>Stats</h3><p>Pair a detailed progress graph with useful measures: total push-ups, max set, average progress per workout, and calories burned.</p></article>
+				</div>
+			</section>
+
+			<section class="mb-16 max-[620px]:mb-12" aria-labelledby="full-design-title">
+				<div class="mb-6"><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">FULL DESIGN</p><h2 class="mb-2 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="full-design-title">The complete screen exploration.</h2><p class="mb-0 text-base leading-[1.7] text-[#535b57]">The board shows the Home, Workout, and Stats concepts alongside supporting Rest and Settings screens.</p></div>
+				<figure class="case-study-board m-0 overflow-hidden rounded-sm bg-[#edf2f5] p-3 max-[620px]:p-1.5">
+					<img class="block h-auto w-full" src="/work/beautiful-push-up-design.webp" alt="Full Pushups app design board with iPhone mockups and Home, Workout, Rest, Stats, and Settings screen designs" width="2040" height="7002" loading="lazy" decoding="async" />
+					<figcaption class="px-3 py-4 text-sm leading-[1.6] text-[#58615d] max-[620px]:px-2">A continuous view of the full design board, including the core contest screens and supporting flows.</figcaption>
+				</figure>
+			</section>
+
+			<section class="case-study-summary mb-16 grid grid-cols-[.8fr_1.2fr] gap-[10%] border-t border-[#e2e6ee] pt-8 max-[900px]:grid-cols-1 max-[900px]:gap-4 max-[620px]:mb-12" aria-labelledby="design-choices-title">
+				<div><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">DESIGN PRINCIPLES</p><h2 class="m-0 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="design-choices-title">Keep the effort focused on the workout.</h2></div>
+				<p class="m-0 text-base leading-[1.75] text-[#535b57]">The bright coral-red palette brings energy to the training flow, while the graph, workout button, and set controls stay visually prominent. Success and rest screens give each set a clear finish and a simple transition into the next one. The supporting stats make progress measurable without crowding the home screen.</p>
+			</section>
+
+			<a class="inline-flex items-center gap-2 text-sm font-semibold text-brand-blue-dark transition-colors hover:text-brand-blue" href="/#work">Back to previous work <span aria-hidden="true">→</span></a>
+		</article>
+	</main>
+	<SiteFooter />
+</Layout>

@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const screenshots = [
+	{ src: '/work/berry-8-01.webp', alt: 'Berry 8 homepage with correspondence metrics, late items, and status charts', title: 'Homepage dashboard', caption: 'A high-level dashboard brings correspondence activity and workload status into one view.' },
+	{ src: '/work/berry-8-02.webp', alt: 'Berry 8 correspondence overview with status, deadlines, attachments, and action history', title: 'Correspondence overview', caption: 'Correspondence details keep ownership, deadlines, attachments, and previous actions close together.' },
+	{ src: '/work/berry-8-03.webp', alt: 'Berry 8 weekly calendar showing meetings and scheduled events', title: 'Meetings calendar', caption: 'A weekly calendar helps teams scan meetings and scheduled work across the organization.' },
+	{ src: '/work/berry-8-04.webp', alt: 'Berry 8 committees dashboard with committee totals, tasks, and meetings', title: 'Committees dashboard', caption: 'Committee activity, task status, and upcoming meetings share a consistent dashboard.' },
+	{ src: '/work/berry-8-05.webp', alt: 'Berry 8 task management list with assigned tasks, deadlines, and progress indicators', title: 'Task management', caption: 'Task lists show assignments, due dates, progress, and work status at a glance.' },
+	{ src: '/work/berry-8-06.webp', alt: 'Berry 8 extracted reports table with request dates, users, units, and status', title: 'Reports', caption: 'Extracted reports make requested outputs and their completion status easy to track.' },
+	{ src: '/work/berry-8-07.webp', alt: 'Berry 8 announcements panel with a document preview and acknowledgement action', title: 'Announcements', caption: 'Announcements pair a readable document preview with a clear acknowledgement action.' },
+];
+---
+
+<Layout title="Berry 8 — Case Study" description="A winning Berry correspondence and workflow management design, bringing organizational work into a clear, unified interface.">
+	<SiteHeader currentPage="home" />
+	<main id="top">
+		<article class="case-study wrap mx-auto w-[calc(100%-112px)] max-w-[1120px] pt-10 pb-24 max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-7 max-[620px]:pb-14">
+			<a class="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-brand-blue-dark transition-colors hover:text-brand-blue" href="/#work"><span aria-hidden="true">←</span> Back to previous work</a>
+			<header class="case-study-header mb-14 max-w-[820px] max-[620px]:mb-9">
+				<p class="eyebrow mb-4 flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966]">ENTERPRISE WORKFLOW · WEB <span class="heading-line"></span></p>
+				<h1 class="mb-5 font-display text-[clamp(48px,7vw,84px)] font-semibold leading-[.98] tracking-[-.07em] max-[620px]:text-[46px]">Berry 8<span class="text-brand-blue">.</span></h1>
+				<p class="max-w-[720px] text-xl leading-[1.6] text-[#535b57] max-[620px]:text-[17px]">A unified workspace for correspondence and the everyday operations that move an organization forward.</p>
+				<div class="mt-8 grid max-w-[500px] grid-cols-2 gap-4 max-[620px]:grid-cols-1">
+					<div class="case-meta-card rounded-sm border border-[#e2e6ee] bg-white p-4"><small>PRODUCT</small><b>Berry</b></div>
+					<div class="case-meta-card rounded-sm border border-[#e2e6ee] bg-white p-4"><small>PLATFORM</small><b>Web</b></div>
+				</div>
+			</header>
+
+			<section class="mb-16 max-[620px]:mb-12" aria-labelledby="berry-gallery-title">
+				<div class="mb-6 max-w-[700px]"><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">SEVEN PRODUCT VIEWS</p><h2 class="mb-3 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="berry-gallery-title">One connected workspace.</h2><p class="mb-0 text-base leading-[1.7] text-[#535b57]">Select a screen to explore how Berry brings operational information into a consistent interface.</p></div>
+				<div class="berry-gallery rounded-sm border border-[#e2e6ee] bg-[#eef3fa] p-3 max-[620px]:p-1.5" data-berry-gallery>
+					<figure class="m-0 overflow-hidden rounded-sm bg-white">
+						<div class="relative flex min-h-[220px] items-center justify-center bg-[#edf2f5] max-[620px]:min-h-[140px]">
+							<img data-gallery-main class="block h-auto max-h-[min(68vh,680px)] w-full object-contain" src={screenshots[0].src} alt={screenshots[0].alt} width="1920" height="1024" fetchpriority="high" decoding="async" />
+							<button class="berry-gallery-nav berry-gallery-prev" type="button" aria-label="Show previous screenshot" data-gallery-prev><span aria-hidden="true">←</span></button>
+							<button class="berry-gallery-nav berry-gallery-next" type="button" aria-label="Show next screenshot" data-gallery-next><span aria-hidden="true">→</span></button>
+						</div>
+						<figcaption class="berry-gallery-caption flex items-start justify-between gap-4 px-5 py-4 max-[620px]:px-3">
+							<span><b data-gallery-title>{screenshots[0].title}</b><span class="mt-1 block text-sm leading-relaxed text-[#58615d]" data-gallery-caption>{screenshots[0].caption}</span></span>
+							<span class="shrink-0 text-sm font-semibold tabular-nums text-[#58615d]" aria-live="polite"><span data-gallery-count>01</span> / 07</span>
+						</figcaption>
+					</figure>
+					<div class="berry-gallery-thumbnails mt-3 flex gap-2 overflow-x-auto pb-2" role="group" aria-label="Choose a Berry 8 screenshot">
+						{screenshots.map((screen, index) => <button class="berry-gallery-thumb" type="button" data-gallery-thumb data-index={index} data-src={screen.src} data-alt={screen.alt} data-title={screen.title} data-caption={screen.caption} aria-label={`Show screenshot ${index + 1}: ${screen.title}`} aria-pressed={index === 0 ? 'true' : 'false'}><img src={screen.src} alt="" loading="lazy" decoding="async" width="1920" height="1024" /><span>{String(index + 1).padStart(2, '0')}</span></button>)}
+					</div>
+				</div>
+			</section>
+
+			<section class="mb-16 grid grid-cols-[.8fr_1.2fr] gap-[10%] max-[900px]:grid-cols-1 max-[900px]:gap-5 max-[620px]:mb-12" aria-labelledby="berry-challenge">
+				<div><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">THE CHALLENGE</p><h2 class="m-0 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="berry-challenge">Bring fragmented operations into focus.</h2></div>
+				<div class="space-y-4 text-base leading-[1.75] text-[#535b57]"><p>The Berry brief describes organizations relying on disconnected systems for correspondence, committees, meetings, documents, and tasks. Manual processes can slow decisions, reduce transparency, and make coordination harder.</p><p>Berry is presented as a secure digital ecosystem that brings those workflows together. Its correspondence tools cover incoming, outgoing, and internal communications, with routing and approvals alongside search, deadline tracking, and connected operational modules.</p></div>
+			</section>
+
+			<section class="mb-16 max-[620px]:mb-12" aria-labelledby="berry-approach">
+				<div class="mb-7 max-w-[700px]"><p class="eyebrow mb-3 text-xs font-bold tracking-[.13em] text-[#626966]">DESIGN APPROACH</p><h2 class="mb-3 font-display text-[clamp(30px,4vw,42px)] font-semibold leading-[1.1] tracking-[-.05em]" id="berry-approach">Make complex work easier to follow.</h2><p class="mb-0 text-base leading-[1.7] text-[#535b57]">The screens show how a consistent structure supports different jobs without losing the details people need to act.</p></div>
+				<div class="grid grid-cols-2 gap-5 max-[620px]:grid-cols-1">
+					<article class="case-screen-card rounded-sm bg-[#eaf1fe] p-6 max-[620px]:p-5"><span>01</span><h3>See status quickly</h3><p>Dashboards use summaries, charts, and late-item lists to surface workload and activity across teams.</p></article>
+					<article class="case-screen-card rounded-sm bg-[#fbe8e4] p-6 max-[620px]:p-5"><span>02</span><h3>Keep the full record together</h3><p>Correspondence views bring ownership, deadlines, attachments, and action history into one place.</p></article>
+					<article class="case-screen-card rounded-sm bg-[#eee9f6] p-6 max-[620px]:p-5"><span>03</span><h3>Connect related operations</h3><p>Calendar, committee, and task views extend the workflow while keeping the same clear navigation and status cues.</p></article>
+					<article class="case-screen-card rounded-sm bg-[#eaf1fe] p-6 max-[620px]:p-5"><span>04</span><h3>Track outputs and communication</h3><p>Reports and announcements make the state of generated documents and shared updates visible to users.</p></article>
+				</div>
+			</section>
+
+			<p class="case-study-summary mb-12 border-t border-[#e2e6ee] pt-7 text-base leading-[1.75] text-[#535b57]">My work on Berry at eSense Software focused on making a broad enterprise platform easier to navigate. The screens shown here illustrate the product’s connected workflows, from correspondence and meetings to tasks, reports, and announcements.</p>
+			<a class="inline-flex items-center gap-2 text-sm font-semibold text-brand-blue-dark transition-colors hover:text-brand-blue" href="/#work">Back to previous work <span aria-hidden="true">→</span></a>
+		</article>
+	</main>
+	<SiteFooter />
+</Layout>
+
+<style>
+	.berry-gallery{width:100%;max-width:100%;min-width:0;overflow:hidden;box-sizing:border-box}
+	.berry-gallery figure,.berry-gallery-thumbnails{width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+	.berry-gallery-thumbnails{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;contain:inline-size}
+	.berry-gallery-nav{position:absolute;top:50%;display:grid;width:44px;height:44px;place-items:center;transform:translateY(-50%);border:1px solid rgb(255 255 255 / .68);border-radius:999px;background:rgb(20 39 69 / .78);color:#fff;font-size:22px;transition:background .2s,transform .2s}
+	.berry-gallery-nav:hover{background:#4285f4;transform:translateY(-50%) scale(1.05)}
+	.berry-gallery-nav:focus-visible,.berry-gallery-thumb:focus-visible{outline:3px solid #4285f4;outline-offset:3px}
+	.berry-gallery-prev{left:16px}.berry-gallery-next{right:16px}
+	.berry-gallery-thumb{position:relative;flex:0 0 clamp(112px,16vw,176px);overflow:hidden;border:2px solid transparent;border-radius:3px;background:#fff;text-align:left;transition:border-color .2s,transform .2s}
+	.berry-gallery-thumb:hover{transform:translateY(-2px)}
+	.berry-gallery-thumb[aria-pressed="true"]{border-color:#4285f4;box-shadow:0 0 0 2px rgb(66 133 244 / .22)}
+	.berry-gallery-thumb img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+	.berry-gallery-thumb span{display:block;padding:7px 9px;font-size:12px;font-weight:700;color:#344054}
+	.berry-gallery-caption{background:#fff}
+	html[data-theme='dark'] .berry-gallery{border-color:#344154;background:#1b2430}
+	html[data-theme='dark'] .berry-gallery figure,html[data-theme='dark'] .berry-gallery-caption,html[data-theme='dark'] .berry-gallery-thumb{background:#202b39}
+	html[data-theme='dark'] .berry-gallery-thumb span{color:#e2e8f0}
+	html[data-theme='dark'] .berry-gallery-caption [data-gallery-caption],html[data-theme='dark'] .berry-gallery-caption>span:last-child{color:#c2ccd8}
+	@media(max-width:620px){.berry-gallery-nav{width:38px;height:38px}.berry-gallery-prev{left:9px}.berry-gallery-next{right:9px}}
+	@media(prefers-reduced-motion:reduce){.berry-gallery-nav,.berry-gallery-thumb{transition:none}}
+</style>
+
+<script>
+	const gallery = document.querySelector<HTMLElement>('[data-berry-gallery]');
+	if (gallery) {
+		const main = gallery.querySelector<HTMLImageElement>('[data-gallery-main]');
+		const title = gallery.querySelector<HTMLElement>('[data-gallery-title]');
+		const caption = gallery.querySelector<HTMLElement>('[data-gallery-caption]');
+		const count = gallery.querySelector<HTMLElement>('[data-gallery-count]');
+		const thumbs = [...gallery.querySelectorAll<HTMLButtonElement>('[data-gallery-thumb]')];
+		let active = 0;
+		const show = (index: number) => {
+			active = (index + thumbs.length) % thumbs.length;
+			const selected = thumbs[active];
+			if (!main || !title || !caption || !count || !selected) return;
+			main.src = selected.dataset.src ?? '';
+			main.alt = selected.dataset.alt ?? '';
+			title.textContent = selected.dataset.title ?? '';
+			caption.textContent = selected.dataset.caption ?? '';
+			count.textContent = String(active + 1).padStart(2, '0');
+			thumbs.forEach((button, index) => button.setAttribute('aria-pressed', String(index === active)));
+		};
+		thumbs.forEach((button, index) => button.addEventListener('click', () => show(index)));
+		gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', () => show(active - 1));
+		gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => show(active + 1));
+	}
+</script>

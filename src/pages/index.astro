@@ -7,10 +7,10 @@ import SiteFooter from '../components/SiteFooter.astro';
 const fullName = cv.personal_info.full_name;
 const role = 'Product designer';
 const previousWork = [
-	{ title: 'Berry Software', image: '/work/berry-software.avif', alt: 'Berry Software product design' },
-	{ title: 'Beautiful Push Up App', image: '/work/beautiful-push-up-app.png', alt: 'Beautiful Push Up fitness app interface designs' },
-	{ title: 'Blue Sky Me App', image: '/work/blue-sky-me-app.jpg', alt: 'Blue Sky Me planning app interface designs' },
-	{ title: 'Vendeze Mobile App', image: '/work/vendeze-app.jpg', alt: 'Vendeze mobile shopping app interface designs' },
+	{ title: 'Berry 8', image: '/work/berry-8.webp', alt: 'Berry 8 correspondence and workflow management dashboard', href: '/work/berry-8/' },
+	{ title: 'Beautiful Push Up App', image: '/work/beautiful-push-up-app.png', alt: 'Beautiful Push Up fitness app interface designs', href: '/work/beautiful-push-up/' },
+	{ title: 'Blue Sky Me App', image: '/work/blue-sky-me-app.jpg', alt: 'Blue Sky Me planning app interface designs', href: '/work/blue-sky-me/' },
+	{ title: 'Berry 7', image: '/work/berry-7.avif', alt: 'Berry software design', href: null },
 ];
 const capabilityCards = [
 	{ number: '01', title: 'Complex workflows, made clear', category: 'PRODUCT DESIGN', tone: 'mint', description: 'I turn dense, technical requirements into user journeys and interfaces people can move through with confidence.', visual: 'workflow' },
@@ -59,9 +59,10 @@ const capabilityCards = [
 					<article class="group min-w-0">
 						<figure class="relative m-0 aspect-square overflow-hidden bg-[#eaf1fe]">
 							<img class="block h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" src={project.image} alt={project.alt} loading="lazy" decoding="async" />
-							<div aria-hidden="true" class="absolute inset-0 flex items-center justify-center bg-brand-blue/90 px-8 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+							<div aria-hidden="true" class="absolute inset-0 flex items-center justify-center bg-brand-blue/90 px-8 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
 								<h3 class="m-0 max-w-[18ch] font-display text-[clamp(22px,3vw,38px)] font-semibold leading-tight tracking-[-.04em]">{project.title}</h3>
 							</div>
+							{project.href && <a class="absolute inset-0 z-10 rounded-sm focus-visible:outline-3 focus-visible:outline-brand-blue focus-visible:outline-offset-2" href={project.href} aria-label={`View case study: ${project.title}`}></a>}
 						</figure>
 						<div class="mt-3 flex items-center justify-between">
 							<h3 class="m-0 font-display text-lg font-semibold tracking-[-.03em] max-[620px]:text-base">{project.title}</h3>
