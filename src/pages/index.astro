@@ -1,11 +1,101 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import cv from '../data/cv.json';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const { personal_info, experience, education, credentials_and_certifications, skills } = cv;
+const fullName = personal_info.full_name;
+const role = 'Product designer';
+const capabilityCards = [
+	{ number: '01', title: 'Complex workflows, made clear', category: 'PRODUCT DESIGN', tone: 'mint', description: 'I turn dense, technical requirements into user journeys and interfaces people can move through with confidence.', visual: 'workflow' },
+	{ number: '02', title: 'A system that scales with the product', category: 'FIGMA · DESIGN SYSTEMS', tone: 'peach', description: 'I build reusable foundations that help teams stay consistent as products, platforms, and teams grow.', visual: 'system' },
+	{ number: '03', title: 'Inclusive by default', category: 'ACCESSIBILITY · RTL', tone: 'blue', description: 'Accessibility, clear hierarchy, and right-to-left localization are part of the design process from the start.', visual: 'inclusive' },
+	{ number: '04', title: 'Thoughtful details, ready to ship', category: 'PROTOTYPING · MOTION', tone: 'lilac', description: 'Prototypes, interaction details, and implementation guidance help ideas make the journey from Figma to product.', visual: 'motion' },
+];
+const tools = skills.tools_and_software.filter((tool) => ['Figma', 'Adobe XD', 'Sketch', 'InVision', 'Lottie'].includes(tool));
+const currentRole = experience.find((item) => item.dates.is_current);
+const educationItem = education[0];
+const googleCert = credentials_and_certifications.find((item) => item.id === 'cert_google_ux_01');
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={`${fullName} — ${role}`} description="Muhammad Nashrul Malik is a product designer shaping clear, inclusive experiences for complex software.">
+	<header class="site-header wrap mx-auto grid h-28 w-[calc(100%-112px)] max-w-[1300px] grid-cols-3 items-center border-b border-[#e9e8e3] max-[900px]:h-[88px] max-[900px]:w-[calc(100%-60px)] max-[620px]:h-[76px] max-[620px]:w-[calc(100%-38px)] max-[620px]:grid-cols-[1fr_auto]">
+		<a class="wordmark inline-flex w-max items-center gap-3 max-[620px]:gap-2" href="#top" aria-label={`${fullName}, home`}>
+			<span class="monogram font-display relative text-[27px] font-extrabold leading-none tracking-[-2.5px] text-[#26302e] max-[620px]:text-2xl" aria-hidden="true">nm<span>.</span></span>
+			<span class="wordmark-name text-[13px] font-semibold tracking-[.03em] text-[#656c69] max-[620px]:text-xs">Nashrul Malik</span>
+		</a>
+		<p class="header-role justify-self-center text-[15px] tracking-[.01em] text-[#666e6b] max-[900px]:text-sm max-[620px]:hidden">Product designer <span>·</span> Figma</p>
+		<nav class="flex items-center justify-self-end gap-[35px] text-[15px] text-[#626865] max-[900px]:gap-[21px] max-[620px]:gap-[17px] max-[620px]:text-sm" aria-label="Main navigation">
+			<a class="text-brand-blue-dark transition-colors hover:text-brand-blue-dark" href="#work">work</a>
+			<a class="transition-colors hover:text-brand-blue-dark" href="#about">about</a>
+			<a class="transition-colors hover:text-brand-blue-dark" href="#contact">contact <span aria-hidden="true">↗</span></a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="intro wrap mx-auto grid min-h-[545px] w-[calc(100%-112px)] max-w-[1300px] grid-cols-[1fr_.9fr] items-center gap-12 pt-[75px] pb-[68px] max-[900px]:min-h-0 max-[900px]:w-[calc(100%-60px)] max-[900px]:grid-cols-2 max-[900px]:gap-5 max-[900px]:py-[60px] max-[620px]:flex max-[620px]:w-[calc(100%-38px)] max-[620px]:flex-col max-[620px]:items-stretch max-[620px]:gap-[29px] max-[620px]:pt-[49px] max-[620px]:pb-[52px]" aria-labelledby="intro-title">
+			<div class="intro-copy pb-[7px] max-[620px]:p-0">
+				<p class="eyebrow mb-[21px] flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966] max-[620px]:mb-[18px]"><span class="status-dot"></span> Available for the right opportunity <span class="eyebrow-place">· Yogyakarta, Indonesia</span></p>
+				<h1 class="mb-[33px] font-display text-[clamp(54px,6.4vw,86px)] font-semibold leading-[.99] tracking-[-.072em] max-[620px]:mb-[22px] max-[620px]:text-[58px]" id="intro-title">Making complex<br /><span class="text-brand-blue">feel simple.</span></h1>
+				<div class="intro-bottom max-w-[510px] border-l-2 border-[#d6efeb] pl-[18px]">
+					<p class="intro-summary mb-[22px] max-w-[440px] text-[18px] leading-[1.7] text-[#636a67] max-[900px]:text-[17px] max-[620px]:text-[17px]">I’m {fullName}, a product designer who turns customer needs and intricate systems into clear, considered digital experiences.</p>
+					<a class="text-link inline-flex items-center gap-[11px] text-[15px] font-bold text-brand-blue-dark max-[620px]:text-sm" href="#work">Explore my approach <span aria-hidden="true">↓</span></a>
+				</div>
+			</div>
+			<div class="hero-art" aria-label="A visual sketch of a product workflow becoming a polished interface" role="img">
+				<div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+				<div class="hero-note note-top"><span class="note-dot"></span> customer need</div>
+				<div class="hero-note note-bottom">clear next step <span>↗</span></div>
+				<div class="hero-card">
+					<div class="mini-top"><span class="mini-brand"><i></i><i></i><i></i></span><span class="mini-avatar">NM</span></div>
+					<div class="mini-kicker">YOUR WORKSPACE</div>
+					<div class="mini-title">Everything<br />in its place.</div>
+					<div class="mini-row"><span class="mini-icon">✓</span><span><b>Project status</b><small>All systems operational</small></span><span class="mini-check">↗</span></div>
+					<div class="mini-row"><span class="mini-icon peach-icon">⌁</span><span><b>Next milestone</b><small>Prototype review · Today</small></span><span class="mini-check">→</span></div>
+				</div>
+				<div class="floating-chip">Designed with care <span>✳</span></div>
+				<div class="hero-caption">From tangled workflows to confident decisions.</div>
+			</div>
+		</section>
+
+		<section class="work-section wrap mx-auto w-[calc(100%-112px)] max-w-[1300px] pt-[45px] pb-[101px] max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-7 max-[620px]:pb-[68px]" id="work" aria-labelledby="work-title">
+			<div class="section-heading mb-7 flex items-end justify-between max-[620px]:mb-[19px] max-[620px]:block">
+				<div><p class="eyebrow mb-[11px] flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966]">SELECTED CAPABILITIES <span class="heading-line"></span></p><h2 class="font-display text-[clamp(30px,3.3vw,42px)] font-semibold leading-[1.15] tracking-[-.055em] max-[620px]:text-[32px]" id="work-title">How I make an impact<span class="accent-dot">.</span></h2></div>
+				<p class="section-aside">A few ways I can help a product team<br />move from complexity to clarity.</p>
+			</div>
+			<div class="capability-grid grid grid-cols-2 gap-[22px] max-[620px]:grid-cols-1 max-[620px]:gap-[31px]">
+				{capabilityCards.map((card) => (
+					<article class={`capability-card ${card.tone}`}>
+						<div class="card-art" aria-hidden="true">
+							{card.visual === 'workflow' && <div class="workflow-art"><span class="flow-node node-a">Need</span><span class="flow-link"></span><span class="flow-node node-b">Journey</span><span class="flow-link link-two"></span><span class="flow-node node-c">Interface</span><span class="flow-spark">✳</span></div>}
+							{card.visual === 'system' && <div class="system-art"><div class="system-window"><div class="window-dots"><i></i><i></i><i></i></div><div class="swatch-row"><i></i><i></i><i></i><i></i></div><div class="system-lines"><i></i><i></i><i></i></div><div class="system-button">Button <span>↗</span></div></div><div class="system-token token-a">Aa</div><div class="system-token token-b">◈</div></div>}
+							{card.visual === 'inclusive' && <div class="inclusive-art"><div class="inclusive-card"><span class="contrast-icon">◐</span><div class="inc-lines"><i></i><i></i></div><span class="inc-action">Continue <b>→</b></span></div><div class="direction-pill">LTR <span>⇄</span> RTL</div><span class="inclusive-spark">✳</span></div>}
+							{card.visual === 'motion' && <div class="motion-art"><div class="motion-screen"><span class="motion-sun">✳</span><span class="motion-path path-one"></span><span class="motion-path path-two"></span><span class="motion-path path-three"></span><span class="motion-play">▶</span></div><span class="motion-label">prototype <b>● ● ●</b></span></div>}
+						</div>
+						<div class="card-meta mt-4 flex items-center justify-between text-xs font-bold tracking-[.13em] text-[#555e5a]"><span>{card.category}</span><span>{card.number}</span></div>
+						<h3 class="mt-[9px] mb-[6px] font-display text-[22px] font-semibold tracking-[-.04em] max-[620px]:text-[21px]">{card.title}</h3>
+						<p class="mb-0 max-w-[465px] text-base leading-[1.65] text-[#737a77] max-[620px]:text-[15px]">{card.description}</p>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="about-section bg-[#f2f2ed] py-[78px] pb-[75px] max-[620px]:py-[54px]" id="about" aria-labelledby="about-title">
+			<div class="about-inner wrap mx-auto grid w-[calc(100%-112px)] max-w-[1300px] grid-cols-[.8fr_1.1fr] gap-[10%] max-[900px]:w-[calc(100%-60px)] max-[900px]:grid-cols-1 max-[900px]:gap-7 max-[620px]:w-[calc(100%-38px)] max-[620px]:gap-[22px]">
+				<div class="about-heading"><p class="eyebrow mb-[11px] flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966]">A LITTLE ABOUT ME <span class="heading-line"></span></p><h2 class="max-w-[340px] font-display text-[clamp(30px,3.3vw,42px)] font-semibold leading-[1.15] tracking-[-.055em] max-[900px]:max-w-none max-[620px]:text-[32px]" id="about-title">Good design is a team sport<span class="accent-dot">.</span></h2></div>
+				<div class="about-content">
+					<p class="about-lede mb-[13px] mt-px font-display text-[21px] font-medium leading-[1.5] tracking-[-.025em] text-[#37413e] max-[620px]:text-[19px]">I bring a systems mindset, a curious nature, and a steady focus on the people using the product.</p>
+					<p class="about-detail mb-7 text-base leading-[1.75] text-[#535b57] max-[620px]:text-[15px]">For nearly seven years at {currentRole.company}, I’ve worked remotely with cross-functional teams to shape enterprise software—from managing a 1,500+ screen prototype to building scalable Figma systems. My engineering background helps me connect the why, the how, and the details that make an experience feel effortless.</p>
+					<div class="experience-strip"><div><span class="strip-label">NOW</span><b>{currentRole.role}</b><small>{currentRole.company} · Remote</small></div><div><span class="strip-label">BEFORE</span><b>Visual & interface design</b><small>99designs · International</small></div><div><span class="strip-label">FOUNDATION</span><b>Electrical engineering</b><small>{educationItem.institution} · Cum Laude</small></div></div>
+					<div class="tool-row"><span class="strip-label">IN MY TOOLKIT</span>{tools.map((tool) => <span class="tool-pill">{tool}</span>)}</div>
+					<div class="credential"><span class="credential-star">✳</span><span><b>{googleCert.title}</b><small>Research · Wireframing · Prototyping</small></span><span class="credential-mark">↗</span></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="contact-section wrap mx-auto w-[calc(100%-112px)] max-w-[1300px] pt-[75px] pb-[61px] max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-12 max-[620px]:pb-[38px]" id="contact" aria-labelledby="contact-title">
+			<div class="contact-card relative grid min-h-[272px] grid-cols-[1fr_.68fr] items-center gap-[50px] overflow-hidden rounded-[3px] bg-[#293b38] px-[8%] py-12 text-white max-[900px]:gap-6 max-[900px]:px-[7%] max-[620px]:block max-[620px]:min-h-0 max-[620px]:px-[25px] max-[620px]:py-[34px]"><div><p class="eyebrow mb-[15px] flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#9bb5ad]">HAVE A GOOD CHALLENGE?</p><h2 class="m-0 font-display text-[clamp(39px,4.5vw,56px)] font-semibold leading-[1.02] tracking-[-.065em] max-[620px]:text-[46px]" id="contact-title">Let’s make it<br /><span>make sense.</span></h2></div><div class="contact-action relative z-[1] max-[620px]:mt-[23px]"><p class="mb-[19px] max-w-[345px] text-base leading-[1.7] text-[#cad6d1] max-[620px]:max-w-[290px] max-[620px]:text-[15px]">I’d love to meet the team building a more resilient future for software—and help make complex things feel clear.</p><a class="contact-button inline-flex items-center gap-[21px] rounded-[3px] bg-brand-blue-dark px-4 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 hover:bg-[#194f9f]" href={`mailto:${personal_info.contact.email}?subject=Product%20Designer%20at%20Codekeeper`}>Start a conversation <span aria-hidden="true">↗</span></a><a class="linkedin-link mt-3 block w-max text-[13px] text-[#b8cbc4] hover:text-white" href={personal_info.links.linkedin} target="_blank" rel="noreferrer">Or find me on LinkedIn ↗</a></div><span class="contact-ornament" aria-hidden="true">✳</span></div>
+		</section>
+	</main>
+
+	<footer class="site-footer wrap mx-auto grid min-h-[86px] w-[calc(100%-112px)] max-w-[1300px] grid-cols-[1fr_1.2fr_1fr] items-center border-t border-[#e9e8e3] text-xs text-[#58615d] max-[900px]:w-[calc(100%-60px)] max-[620px]:min-h-[94px] max-[620px]:w-[calc(100%-38px)] max-[620px]:grid-cols-[1fr_auto] max-[620px]:gap-y-[9px] max-[620px]:py-[17px]"><a class="footer-name font-display text-[13px] font-bold text-[#49514e]" href="#top">{fullName}</a><span class="max-[620px]:col-start-1 max-[620px]:row-start-2">Product designer · Yogyakarta, Indonesia</span><a class="justify-self-end text-brand-blue-dark max-[620px]:col-start-2 max-[620px]:row-start-1" href="#top">Back to top ↑</a><small class="col-span-full justify-self-center pb-[14px] text-xs text-[#58615d] max-[620px]:row-start-3 max-[620px]:justify-self-start max-[620px]:p-0">Thoughtfully designed, with a little help from Figma.</small></footer>
 </Layout>
