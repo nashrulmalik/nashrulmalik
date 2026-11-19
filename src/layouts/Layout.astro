@@ -19,6 +19,9 @@ const { title = 'Muhammad Nashrul Malik — Product Designer', description = 'Pr
 		<meta name="generator" content={Astro.generator} />
 		<script is:inline>
 			try {
+				const language = localStorage.getItem('language') || 'en';
+				document.documentElement.lang = language;
+				document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
 				const savedTheme = localStorage.getItem('theme');
 				const initialTheme = savedTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 				document.documentElement.dataset.theme = initialTheme;

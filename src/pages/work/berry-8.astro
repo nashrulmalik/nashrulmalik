@@ -4,13 +4,13 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 
 const screenshots = [
-	{ src: '/work/berry-8-01.webp', alt: 'Berry 8 homepage with correspondence metrics, late items, and status charts', title: 'Homepage dashboard', caption: 'A high-level dashboard brings correspondence activity and workload status into one view.' },
-	{ src: '/work/berry-8-02.webp', alt: 'Berry 8 correspondence overview with status, deadlines, attachments, and action history', title: 'Correspondence overview', caption: 'Correspondence details keep ownership, deadlines, attachments, and previous actions close together.' },
-	{ src: '/work/berry-8-03.webp', alt: 'Berry 8 weekly calendar showing meetings and scheduled events', title: 'Meetings calendar', caption: 'A weekly calendar helps teams scan meetings and scheduled work across the organization.' },
-	{ src: '/work/berry-8-04.webp', alt: 'Berry 8 committees dashboard with committee totals, tasks, and meetings', title: 'Committees dashboard', caption: 'Committee activity, task status, and upcoming meetings share a consistent dashboard.' },
-	{ src: '/work/berry-8-05.webp', alt: 'Berry 8 task management list with assigned tasks, deadlines, and progress indicators', title: 'Task management', caption: 'Task lists show assignments, due dates, progress, and work status at a glance.' },
-	{ src: '/work/berry-8-06.webp', alt: 'Berry 8 extracted reports table with request dates, users, units, and status', title: 'Reports', caption: 'Extracted reports make requested outputs and their completion status easy to track.' },
-	{ src: '/work/berry-8-07.webp', alt: 'Berry 8 announcements panel with a document preview and acknowledgement action', title: 'Announcements', caption: 'Announcements pair a readable document preview with a clear acknowledgement action.' },
+	{ src: '/work/berry-8-01.webp', alt: 'Berry 8 homepage with correspondence metrics, late items, and status charts', title: 'Homepage dashboard', arTitle: 'لوحة الصفحة الرئيسية', caption: 'A high-level dashboard brings correspondence activity and workload status into one view.', arCaption: 'تجمع لوحة عامة نشاط المراسلات وحالة العمل في عرض واحد.' },
+	{ src: '/work/berry-8-02.webp', alt: 'Berry 8 correspondence overview with status, deadlines, attachments, and action history', title: 'Correspondence overview', arTitle: 'نظرة عامة على المراسلات', caption: 'Correspondence details keep ownership, deadlines, attachments, and previous actions close together.', arCaption: 'تجمع تفاصيل المراسلات المسؤوليات والمواعيد النهائية والمرفقات والإجراءات السابقة.' },
+	{ src: '/work/berry-8-03.webp', alt: 'Berry 8 weekly calendar showing meetings and scheduled events', title: 'Meetings calendar', arTitle: 'تقويم الاجتماعات', caption: 'A weekly calendar helps teams scan meetings and scheduled work across the organization.', arCaption: 'يساعد التقويم الأسبوعي الفرق على استعراض الاجتماعات والأعمال المجدولة في المؤسسة.' },
+	{ src: '/work/berry-8-04.webp', alt: 'Berry 8 committees dashboard with committee totals, tasks, and meetings', title: 'Committees dashboard', arTitle: 'لوحة اللجان', caption: 'Committee activity, task status, and upcoming meetings share a consistent dashboard.', arCaption: 'تعرض لوحة متسقة أنشطة اللجان وحالة المهام والاجتماعات القادمة.' },
+	{ src: '/work/berry-8-05.webp', alt: 'Berry 8 task management list with assigned tasks, deadlines, and progress indicators', title: 'Task management', arTitle: 'إدارة المهام', caption: 'Task lists show assignments, due dates, progress, and work status at a glance.', arCaption: 'تعرض قوائم المهام التعيينات ومواعيد التسليم والتقدم والحالة بنظرة واحدة.' },
+	{ src: '/work/berry-8-06.webp', alt: 'Berry 8 extracted reports table with request dates, users, units, and status', title: 'Reports', arTitle: 'التقارير', caption: 'Extracted reports make requested outputs and their completion status easy to track.', arCaption: 'تسهّل التقارير المستخرجة متابعة المخرجات المطلوبة وحالة إنجازها.' },
+	{ src: '/work/berry-8-07.webp', alt: 'Berry 8 announcements panel with a document preview and acknowledgement action', title: 'Announcements', arTitle: 'الإعلانات', caption: 'Announcements pair a readable document preview with a clear acknowledgement action.', arCaption: 'تجمع الإعلانات بين معاينة واضحة للمستند وإجراء تأكيد الاستلام.' },
 ];
 ---
 
@@ -44,7 +44,7 @@ const screenshots = [
 						</figcaption>
 					</figure>
 					<div class="berry-gallery-thumbnails mt-3 flex gap-2 overflow-x-auto pb-2" role="group" aria-label="Choose a Berry 8 screenshot">
-						{screenshots.map((screen, index) => <button class="berry-gallery-thumb" type="button" data-gallery-thumb data-index={index} data-src={screen.src} data-alt={screen.alt} data-title={screen.title} data-caption={screen.caption} aria-label={`Show screenshot ${index + 1}: ${screen.title}`} aria-pressed={index === 0 ? 'true' : 'false'}><img src={screen.src} alt="" loading="lazy" decoding="async" width="1920" height="1024" /><span>{String(index + 1).padStart(2, '0')}</span></button>)}
+						{screenshots.map((screen, index) => <button class="berry-gallery-thumb" type="button" data-gallery-thumb data-index={index} data-src={screen.src} data-alt={screen.alt} data-title={screen.title} data-ar-title={screen.arTitle} data-caption={screen.caption} data-ar-caption={screen.arCaption} aria-label={`Show screenshot ${index + 1}: ${screen.title}`} aria-pressed={index === 0 ? 'true' : 'false'}><img src={screen.src} alt="" loading="lazy" decoding="async" width="1920" height="1024" /><span>{String(index + 1).padStart(2, '0')}</span></button>)}
 					</div>
 				</div>
 			</section>
@@ -108,8 +108,9 @@ const screenshots = [
 			if (!main || !title || !caption || !count || !selected) return;
 			main.src = selected.dataset.src ?? '';
 			main.alt = selected.dataset.alt ?? '';
-			title.textContent = selected.dataset.title ?? '';
-			caption.textContent = selected.dataset.caption ?? '';
+			const isArabic = document.documentElement.lang === 'ar';
+			title.textContent = (isArabic ? selected.dataset.arTitle : selected.dataset.title) ?? '';
+			caption.textContent = (isArabic ? selected.dataset.arCaption : selected.dataset.caption) ?? '';
 			count.textContent = String(active + 1).padStart(2, '0');
 			thumbs.forEach((button, index) => button.setAttribute('aria-pressed', String(index === active)));
 		};

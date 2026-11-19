@@ -20,6 +20,7 @@ const linkClass = 'transition-colors hover:text-brand-blue-dark';
 		<a class:list={[linkClass, currentPage === 'home' && 'text-brand-blue-dark']} href="/#work" aria-current={currentPage === 'home' ? 'page' : undefined}>work</a>
 		<a class:list={[linkClass, currentPage === 'about' && 'text-brand-blue-dark']} href="/about/" aria-current={currentPage === 'about' ? 'page' : undefined}>about</a>
 		<a class:list={[linkClass, currentPage === 'contact' && 'text-brand-blue-dark']} href="/contact/" aria-current={currentPage === 'contact' ? 'page' : undefined}>contact</a>
+		<button class="language-toggle inline-grid min-w-10 h-10 place-items-center rounded-full border border-[#dfe3dc] bg-white px-2 text-xs font-semibold text-[#1e5fbf] transition-colors hover:bg-[#eaf1fe] focus-visible:outline-3 focus-visible:outline-brand-blue focus-visible:outline-offset-2 max-[620px]:min-w-8 max-[620px]:h-8" type="button" data-language-toggle aria-label="Switch to Arabic" title="Switch to Arabic" aria-pressed="false">عربي</button>
 		<button class="theme-toggle inline-grid size-10 place-items-center rounded-full border border-[#dfe3dc] bg-white text-lg text-[#1e5fbf] transition-colors hover:bg-[#eaf1fe] focus-visible:outline-3 focus-visible:outline-brand-blue focus-visible:outline-offset-2 max-[620px]:size-8" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="false"><span data-theme-icon aria-hidden="true">☾</span></button>
 	</nav>
 </header>
@@ -32,7 +33,9 @@ const linkClass = 'transition-colors hover:text-brand-blue-dark';
 			const isDark = theme === 'dark';
 			document.documentElement.dataset.theme = theme;
 			themeToggle.setAttribute('aria-pressed', String(isDark));
-			const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+			const label = document.documentElement.lang === 'ar'
+				? (isDark ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن')
+				: (isDark ? 'Switch to light mode' : 'Switch to dark mode');
 			themeToggle.setAttribute('aria-label', label);
 			themeToggle.title = label;
 			if (themeIcon) themeIcon.textContent = isDark ? '☀' : '☾';
@@ -45,4 +48,9 @@ const linkClass = 'transition-colors hover:text-brand-blue-dark';
 			applyTheme(nextTheme);
 		});
 	}
+</script>
+
+<script>
+	import { initLanguageToggle } from '../scripts/language';
+	initLanguageToggle();
 </script>
