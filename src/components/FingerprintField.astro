@@ -1,0 +1,171 @@
+---
+// Interactive "fingerprint field": dots arranged along fingerprint-like ridges.
+// Move the pointer to disturb the ridges; click or tap to send a scan pulse.
+// Canvas 2D, no dependencies. Respects reduced motion and pauses off-screen.
+---
+
+<div class="fingerprint-field" data-fingerprint-field>
+	<canvas aria-hidden="true"></canvas>
+</div>
+
+<style>
+	.fingerprint-field{position:relative;height:420px;border-radius:3px;background:#eaf1fe;overflow:hidden;cursor:crosshair;touch-action:pan-y}
+	.fingerprint-field canvas{display:block;width:100%;height:100%}
+	:global(html[data-theme='dark']) .fingerprint-field{background:#1b2a41}
+	@media(max-width:620px){.fingerprint-field{height:320px}}
+</style>
+
+<script>
+	type Dot = { hx: number; hy: number; x: number; y: number; vx: number; vy: number; glow: number };
+
+	const root = document.querySelector<HTMLElement>('[data-fingerprint-field]');
+	const canvas = root?.querySelector('canvas');
+	const ctx = canvas?.getContext('2d');
+
+	if (root && canvas && ctx) {
+		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		let width = 0;
+		let height = 0;
+		let dots: Dot[] = [];
+		let pointer = { x: -9999, y: -9999, active: false };
+		let pulse = { x: 0, y: 0, r: 0, active: false };
+		let running = false;
+		let visible = true;
+		let frame = 0;
+
+		const colors = () => document.documentElement.dataset.theme === 'dark'
+			? { dot: '155, 188, 255', ring: '66, 133, 244' }
+			: { dot: '30, 95, 191', ring: '66, 133, 244' };
+		let palette = colors();
+
+		// Build ridges: a loop/whorl pattern of distorted ellipses, sampled into dots, with small gaps.
+		const build = () => {
+			dots = [];
+			const cx = width * 0.5;
+			const cy = height * 0.5;
+			const scale = Math.min(width / 470, height / 690);
+			const ridges = 17;
+			for (let k = 1; k <= ridges; k++) {
+				const r = (10 + k * 11) * scale;
+				const steps = Math.max(24, Math.floor((Math.PI * 2 * r) / Math.max(4, 6 * scale)));
+				for (let i = 0; i < steps; i++) {
+					const t = (i / steps) * Math.PI * 2;
+					const gap = Math.sin(t * 3 + k * 1.7) + Math.sin(t * 7 - k * 0.9) * 0.5;
+					if (gap > 1.15) continue;
+					const wobble = 1 + 0.07 * Math.sin(t * 3 + k * 0.35) + 0.03 * Math.sin(t * 5 - k);
+					const stretch = 1.28 - 0.12 * Math.cos(t);
+					const hx = cx + Math.cos(t) * r * wobble;
+					const hy = cy + Math.sin(t) * r * wobble * stretch - Math.max(0, -Math.sin(t)) * k * 0.9 * scale;
+					if (hx < -10 || hx > width + 10 || hy < -10 || hy > height + 10) continue;
+					dots.push({ hx, hy, x: hx, y: hy, vx: 0, vy: 0, glow: 0 });
+				}
+			}
+		};
+
+		const resize = () => {
+			const rect = root.getBoundingClientRect();
+			const dpr = Math.min(window.devicePixelRatio || 1, 2);
+			width = rect.width;
+			height = rect.height;
+			canvas.width = Math.round(width * dpr);
+			canvas.height = Math.round(height * dpr);
+			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			build();
+			draw();
+		};
+
+		const step = () => {
+			for (const d of dots) {
+				if (pointer.active) {
+					const dx = d.x - pointer.x;
+					const dy = d.y - pointer.y;
+					const dist = Math.hypot(dx, dy);
+					if (dist < 70 && dist > 0.01) {
+						const push = (1 - dist / 70) * 1.6;
+						d.vx += (dx / dist) * push;
+						d.vy += (dy / dist) * push;
+					}
+				}
+				if (pulse.active) {
+					const dist = Math.hypot(d.hx - pulse.x, d.hy - pulse.y);
+					if (Math.abs(dist - pulse.r) < 10) d.glow = 1;
+				}
+				d.vx += (d.hx - d.x) * 0.06;
+				d.vy += (d.hy - d.y) * 0.06;
+				d.vx *= 0.82;
+				d.vy *= 0.82;
+				d.x += d.vx;
+				d.y += d.vy;
+				d.glow *= 0.94;
+			}
+			if (pulse.active) {
+				pulse.r += 6;
+				if (pulse.r > Math.hypot(width, height)) pulse.active = false;
+			}
+		};
+
+		const draw = () => {
+			ctx.clearRect(0, 0, width, height);
+			for (const d of dots) {
+				const moved = Math.min(1, Math.hypot(d.x - d.hx, d.y - d.hy) / 25);
+				const alpha = 0.45 + moved * 0.35 + d.glow * 0.5;
+				const size = 1.8 + d.glow * 1.6;
+				ctx.fillStyle = `rgba(${palette.dot}, ${Math.min(alpha, 1)})`;
+				ctx.fillRect(d.x - size / 2, d.y - size / 2, size, size);
+			}
+			if (pulse.active) {
+				ctx.strokeStyle = `rgba(${palette.ring}, 0.35)`;
+				ctx.lineWidth = 1.5;
+				ctx.beginPath();
+				ctx.arc(pulse.x, pulse.y, pulse.r, 0, Math.PI * 2);
+				ctx.stroke();
+			}
+		};
+
+		const loop = () => {
+			if (!running) return;
+			step();
+			draw();
+			frame = requestAnimationFrame(loop);
+		};
+		const start = () => {
+			if (reduceMotion || running || !visible) return;
+			running = true;
+			frame = requestAnimationFrame(loop);
+		};
+		const stop = () => {
+			running = false;
+			cancelAnimationFrame(frame);
+		};
+
+		const localPoint = (event: PointerEvent) => {
+			const rect = root.getBoundingClientRect();
+			return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+		};
+		root.addEventListener('pointermove', (event) => {
+			pointer = { ...localPoint(event), active: true };
+		});
+		root.addEventListener('pointerleave', () => {
+			pointer.active = false;
+		});
+		root.addEventListener('pointerdown', (event) => {
+			const point = localPoint(event);
+			pulse = { x: point.x, y: point.y, r: 0, active: true };
+			start();
+		});
+
+		new IntersectionObserver((entries) => {
+			visible = entries[0]?.isIntersecting ?? true;
+			if (visible) start(); else stop();
+		}).observe(root);
+
+		new MutationObserver(() => {
+			palette = colors();
+			draw();
+		}).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+		new ResizeObserver(resize).observe(root);
+		resize();
+		start();
+	}
+</script>

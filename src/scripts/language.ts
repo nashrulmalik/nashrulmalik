@@ -1,4 +1,6 @@
 const translations: Record<string, string> = {
+	'LAB': 'المختبر', 'Experiments in code': 'تجارب بالبرمجة', 'Small interactive pieces I design and build in the browser.': 'قطع تفاعلية صغيرة أصممها وأبنيها في المتصفح.', 'Small interactive pieces I design': 'قطع تفاعلية صغيرة أصممها', 'and build in the browser.': 'وأبنيها في المتصفح.',
+	'Fingerprint field': 'حقل البصمة', '— move your cursor across the ridges, or click to send a scan pulse. Canvas 2D, built with Astro and Claude.': '— حرّك المؤشر فوق الخطوط، أو انقر لإرسال نبضة مسح. مبني باستخدام Canvas 2D وAstro وClaude.',
 	'ROLE': 'الدور', 'SCALE': 'الحجم', 'Product designer': 'مصمم منتجات', '13 modules': '13 وحدة',
 	'Keep a 13-module platform coherent.': 'الحفاظ على اتساق منصة من 13 وحدة.',
 	'Berry brings correspondence, committees, meetings, documents, tasks, and reports into one secure workspace for organizations. Each of its 13 modules serves a different job, but users move between them all day.': 'يجمع بيري المراسلات واللجان والاجتماعات والمستندات والمهام والتقارير في مساحة عمل آمنة واحدة للمؤسسات. تخدم كل وحدة من وحداته الثلاث عشرة مهمة مختلفة، لكن المستخدمين يتنقلون بينها طوال اليوم.',

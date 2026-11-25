@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import cv from '../data/cv.json';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import FingerprintField from '../components/FingerprintField.astro';
 
 const fullName = cv.personal_info.full_name;
 const role = 'Product designer';
@@ -71,6 +72,15 @@ const capabilityCards = [
 					</article>
 				))}
 			</div>
+		</section>
+
+		<section class="lab-section wrap mx-auto w-[calc(100%-112px)] max-w-[1300px] pt-[45px] pb-[80px] max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-7 max-[620px]:pb-[54px]" id="lab" aria-labelledby="lab-title">
+			<div class="mb-7 flex items-end justify-between max-[620px]:mb-[19px] max-[620px]:block">
+				<div><p class="eyebrow mb-[11px] flex items-center gap-2 text-xs font-bold tracking-[.13em] text-[#626966]">LAB <span class="heading-line"></span></p><h2 class="font-display text-[clamp(30px,3.3vw,42px)] font-semibold leading-[1.15] tracking-[-.055em] max-[620px]:text-[32px]" id="lab-title">Experiments in code<span class="accent-dot">.</span></h2></div>
+				<p class="section-aside mb-[3px] text-right text-sm leading-[1.6] text-[#5b625f] max-[620px]:hidden">Small interactive pieces I design<br />and build in the browser.</p>
+			</div>
+			<FingerprintField />
+			<p class="mt-3 text-sm leading-relaxed text-[#5b625f]"><b class="font-semibold text-ink">Fingerprint field</b> — move your cursor across the ridges, or click to send a scan pulse. Canvas 2D, built with Astro and Claude.</p>
 		</section>
 
 		<section class="work-section wrap mx-auto w-[calc(100%-112px)] max-w-[1300px] pt-[45px] pb-[101px] max-[900px]:w-[calc(100%-60px)] max-[620px]:w-[calc(100%-38px)] max-[620px]:pt-7 max-[620px]:pb-[68px]" id="capabilities" aria-labelledby="work-title">
